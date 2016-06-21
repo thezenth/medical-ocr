@@ -1,0 +1,1 @@
+- Need to have tesseract-ocr installed (use sudo apt-get install tesseract-ocr on ubuntu)
