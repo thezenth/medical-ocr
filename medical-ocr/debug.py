@@ -24,11 +24,26 @@ def switch(x):
         'reset': Fore.RESET
     }[x]
 
+def back_switch(x):
+    return {
+        'black': Back.BLACK,
+        'red': Back.RED,
+        'green': Back.GREEN,
+        'yellow': Back.YELLOW,
+        'blue': Back.BLUE,
+        'magenta': Back.MAGENTA,
+        'cyan': Back.CYAN,
+        'white': Back.WHITE,
+        'reset': Back.RESET
+    }[x]
+
 def dbg( msg, ident=None, clr=None ):
     m = msg
     if ident:
         m = ident + ":" + msg
-    if clr:
+        if clr:
+            m = back_switch(clr) + Style.BRIGHT + Fore.BLACK + ident +":" + Style.RESET_ALL + msg
+    elif clr:
         m = switch(clr) + m + Style.RESET_ALL
 
     print m
